@@ -1,4 +1,8 @@
-public class Greeter {
+interface Greet {
+    String greet();
+}
+
+public class Greeter implements Greet {
     String formality;
 
     public String greet() {
@@ -15,5 +19,24 @@ public class Greeter {
 
     public void setFormality(String formality) {
         this.formality = formality;
+    }
+}
+
+class AccentGreeter implements Greet {
+    String accent;
+
+    @Override
+    public String greet() {
+        if (accent == "Australian") {
+            return "Goodday mate";
+        } else if (accent == "English") {
+            return "alright mate";
+        } else {
+            return "hello";
+        }
+    }
+
+    public void setAccent(String accent) {
+        this.accent = accent;
     }
 }
